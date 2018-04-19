@@ -1,0 +1,77 @@
+{
+  "title": "Linked Data Fragments server",
+  "baseURL": "/",
+
+  "port": "3001",
+  "workers": 1,
+
+  "datasources": {
+    "sqlTest": {
+      "title": "MySQL",
+      "type": "SQLDatasource",
+      "description": "Such a great idea!",
+      "settings": {
+        "dialect": "mysql",
+        "database": "ldf",
+        "table": "complex",
+        "url": "172.17.4.14",
+        "port": "3306",
+        "username": "root",
+        "password": "root"
+      }
+    },
+    "redbook": {
+      "title": "RedBook",
+      "type": "TurtleDatasource",
+      "description": "Red book of russian uncommon words",
+      "settings": { "file": "/Users/constantin/Downloads/onto dev/redbook/redbook.ttl" }
+    }
+  },
+
+  "dereference": {},
+
+  "prefixes": {
+    "rdf":   "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs":  "http://www.w3.org/2000/01/rdf-schema#",
+    "owl":   "http://www.w3.org/2002/07/owl#",
+    "xsd":   "http://www.w3.org/2001/XMLSchema#",
+    "hydra": "http://www.w3.org/ns/hydra/core#",
+    "void":  "http://rdfs.org/ns/void#",
+    "lexinfo": "http://www.lexinfo.net/ontology/2.0/lexinfo#",
+    "ontolex": "http://www.w3.org/ns/lemon/ontolex#"
+  },
+
+  "routers": [
+    "DatasourceRouter",
+    "TriplePatternRouter",
+    "PageRouter"
+  ],
+
+  "controllers": [
+    "SummaryController",
+    "TimegateController",
+    "TriplePatternFragmentsController",
+    "AssetsController",
+    "DereferenceController",
+    "NotFoundController"
+  ],
+
+  "response": {
+    "headers": {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "Accept-Datetime",
+      "Access-Control-Expose-Headers": "Content-Location,Link,Memento-Datetime"
+    }
+  },
+
+  "extensions": {
+    "TriplePatternFragmentsController": [
+      "MementoControllerExtension"
+    ]
+  },
+
+  "logging": { "enabled": true, "file": "access.log" }
+}
+
+
+

@@ -19,7 +19,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "lint": "eslint bin/* lib test"
+    "lint": "eslint bin/* lib test",
+    "testConfig": "./bin/ldf-server ./testConfig.json"
   },
   "dependencies": {
     "asynciterator": "^1.1.0",
@@ -33,6 +34,7 @@
     "q": "^1.4.1",
     "qejs": "^3.0.5",
     "request": "^2.72.0",
+    "sql-triplestore": "cnstntn-kndrtv/sql-triplestore",
     "uritemplate": "^0.3.4"
   },
   "optionalDependencies": {
