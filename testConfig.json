@@ -6,19 +6,38 @@
   "workers": 1,
 
   "datasources": {
-    "sqlTest": {
-      "title": "MySQL",
+    "click": {
+      "title": "click house",
+      "type": "ClickHouseDatasource",
+      "description": "clickhouse",
+      "settings": {
+        "host": "172.17.4.101",
+        "port": 8123,
+        "username": "default",
+        "password": "",
+        "database": "ldf",
+        "table": "triples"
+      }
+    },
+    "mysql3lex": {
+      "title": "my sql with 3 lexicons ldf/orgf",
       "type": "SQLDatasource",
-      "description": "Such a great idea!",
+      "description": "my sql with 3 lexicons",
       "settings": {
         "dialect": "mysql",
         "database": "ldf",
-        "table": "complex",
+        "table": "orgf",
         "url": "172.17.4.14",
         "port": "3306",
         "username": "root",
         "password": "root"
       }
+    },
+    "hdt": {
+      "title": "HDT",
+      "type": "HdtDatasource",
+      "description": "orgf on hdt",
+      "settings": { "file": "/Users/constantin/Downloads/dicts/orgf.hdt" }
     },
     "redbook": {
       "title": "RedBook",
