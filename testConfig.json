@@ -6,6 +6,12 @@
   "workers": 1,
 
   "datasources": {
+    "quad": {
+      "title": "quad",
+      "type": "TurtleDatasource",
+      "description": "quad test",
+      "settings": { "file": "./friends.nq" }
+    },
     "click": {
       "title": "click house",
       "type": "ClickHouseDatasource",
